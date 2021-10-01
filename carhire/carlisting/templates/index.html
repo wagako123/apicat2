@@ -1,0 +1,43 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+    <h1>Kanairo Car Hire Home</h1>
+    <p>Welcome to Kanairo Car Hire LTD. You home of quality and safe vehicles for hire</p>
+    <h2>Some Dynamic Content</h2>
+    <p><strong>Our car listings at a Glance</strong></p>
+
+    <ul>
+        <li><strong>Listed Vehicles:</strong> {{ cars_count }} </li>
+        <li><strong>Available Cars:</strong> {{ num_cars_available }} </li>
+        <!-- <li><strong>Toyota Cars Listed:</strong> {{ num_toyota }}</li> -->
+    </ul>
+
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Reg no</th>
+                    <th>Car Type</th>
+                    <th>Car Make</th>
+                    <th>Car model</th>
+                    <th>Description</th>
+                    <th>Images</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in Car %}
+                <tr>
+                    <td>{{p.registration}}</td>
+                    <td>{{p.car_type}}</td>
+                    <td>{{p.car_make}}</td>
+                    <td>{{p.car_model}}</td>
+                    <td>{{p.description}}</td>
+                    <td>{{p.car_images}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock %}
